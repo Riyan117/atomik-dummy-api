@@ -1,1 +1,3 @@
 /node_modules
+playwright/.auth/user.json
+playwright-report/
