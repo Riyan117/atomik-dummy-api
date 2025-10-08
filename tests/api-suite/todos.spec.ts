@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Todos API', () => {
   test('should be able to get all todos', async ({ request }) => {
+    console.log('Running test: should be able to get all todos');
     const response = await request.get('https://dummyjson.com/todos');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
@@ -10,6 +11,7 @@ test.describe('Todos API', () => {
   });
 
   test('should be able to get a single todo', async ({ request }) => {
+    console.log('Running test: should be able to get a single todo');
     const response = await request.get('https://dummyjson.com/todos/1');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
@@ -17,6 +19,7 @@ test.describe('Todos API', () => {
   });
 
   test('should be able to add a new todo', async ({ request }) => {
+    console.log('Running test: should be able to add a new todo');
     const response = await request.post('https://dummyjson.com/todos/add', {
       data: {
         todo: 'This is a test todo.',
@@ -30,6 +33,7 @@ test.describe('Todos API', () => {
   });
 
   test('should be able to update a todo', async ({ request }) => {
+    console.log('Running test: should be able to update a todo');
     const response = await request.put('https://dummyjson.com/todos/1', {
       data: {
         completed: true,
@@ -41,6 +45,7 @@ test.describe('Todos API', () => {
   });
 
   test('should be able to delete a todo', async ({ request }) => {
+    console.log('Running test: should be able to delete a todo');
     const response = await request.delete('https://dummyjson.com/todos/1');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();

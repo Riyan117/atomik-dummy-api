@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Recipes API', () => {
   test('should be able to get all recipes', async ({ request }) => {
+    console.log('Running test: should be able to get all recipes');
     const response = await request.get('https://dummyjson.com/recipes');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
@@ -10,6 +11,7 @@ test.describe('Recipes API', () => {
   });
 
   test('should be able to get a single recipe', async ({ request }) => {
+    console.log('Running test: should be able to get a single recipe');
     const response = await request.get('https://dummyjson.com/recipes/1');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
@@ -17,6 +19,7 @@ test.describe('Recipes API', () => {
   });
 
   test('should be able to add a new recipe', async ({ request }) => {
+    console.log('Running test: should be able to add a new recipe');
     const response = await request.post('https://dummyjson.com/recipes/add', {
       data: {
         name: 'Test Recipe',
@@ -30,6 +33,7 @@ test.describe('Recipes API', () => {
   });
 
   test('should be able to update a recipe', async ({ request }) => {
+    console.log('Running test: should be able to update a recipe');
     const response = await request.put('https://dummyjson.com/recipes/1', {
       data: {
         name: 'Updated Recipe',
@@ -41,6 +45,7 @@ test.describe('Recipes API', () => {
   });
 
   test('should be able to delete a recipe', async ({ request }) => {
+    console.log('Running test: should be able to delete a recipe');
     const response = await request.delete('https://dummyjson.com/recipes/1');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();

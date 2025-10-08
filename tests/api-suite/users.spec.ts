@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Users API', () => {
   test('should be able to get all users', async ({ request }) => {
+    console.log('Running test: should be able to get all users');
     const response = await request.get('https://dummyjson.com/users');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
@@ -10,6 +11,7 @@ test.describe('Users API', () => {
   });
 
   test('should be able to get a single user', async ({ request }) => {
+    console.log('Running test: should be able to get a single user');
     const response = await request.get('https://dummyjson.com/users/1');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
@@ -17,6 +19,7 @@ test.describe('Users API', () => {
   });
 
   test('should be able to add a new user', async ({ request }) => {
+    console.log('Running test: should be able to add a new user');
     const response = await request.post('https://dummyjson.com/users/add', {
       data: {
         firstName: 'John',
@@ -30,6 +33,7 @@ test.describe('Users API', () => {
   });
 
   test('should be able to update a user', async ({ request }) => {
+    console.log('Running test: should be able to update a user');
     const response = await request.put('https://dummyjson.com/users/1', {
       data: {
         firstName: 'Jane',
@@ -41,6 +45,7 @@ test.describe('Users API', () => {
   });
 
   test('should be able to delete a user', async ({ request }) => {
+    console.log('Running test: should be able to delete a user');
     const response = await request.delete('https://dummyjson.com/users/1');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
